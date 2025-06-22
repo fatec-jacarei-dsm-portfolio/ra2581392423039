@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Vinícius Lemes</title>
+    <style>
+        :root {
+            --background-light: #ffffff;
+            --text-light: #333333;
+            --primary-orange: #ff8c00; /* Laranja principal */
+            --secondary-orange: #ffa500; /* Um tom de laranja secundário para detalhes */
+            --card-background-light: #f0f0f0;
+
+            --background-dark: #2c2c2c;
+            --text-dark: #f0f0f0;
+            --card-background-dark: #3a3a3a;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+        }
+
+        header {
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--secondary-orange);
+        }
+
+        .theme-switch {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #f0f0f0;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, color 0.3s;
+            color: var(--text-light);
+        }
+
+        .dark-mode .theme-switch {
+            background-color: #555;
+            color: var(--text-dark);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dark-mode section {
+            border-bottom: 1px solid #444;
+        }
+
+        h1, h2 {
+            color: var(--primary-orange);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding-top: 100px; /* Mais espaço no topo para a apresentação */
+            padding-bottom: 100px;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .about-me-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .about-me-content img {
+            width: 200px; /* Tamanho da imagem */
+            height: 200px; /* Tamanho da imagem */
+            border-radius: 50%; /* Deixa a imagem redonda */
+            object-fit: cover;
+            border: 5px solid var(--primary-orange); /* Borda laranja na foto */
+            margin-bottom: 20px;
+        }
+
+        .about-me-text {
+            text-align: left;
+        }
+
+        .about-me-text h3 {
+            color: var(--primary-orange);
+            margin-top: 30px;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skills-list li {
+            background-color: var(--card-background-light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            border: 1px solid var(--primary-orange);
+        }
+
+        .dark-mode .skills-list li {
+            background-color: var(--card-background-dark);
+            color: var(--text-dark);
+        }
+
+        .project-card {
+            background-color: var(--card-background-light);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            border-left: 5px solid var(--primary-orange); /* Detalhe laranja na lateral */
+        }
+
+        .dark-mode .project-card {
+            background-color: var(--card-background-dark);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--primary-orange);
+            margin-top: 0;
+        }
+
+        .project-card p {
+            margin-bottom: 10px;
+        }
+
+        .project-card a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-orange);
+            color: white;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .theme-switch {
+                position: static;
+                transform: none;
+                margin-top: 10px;
+            }
+
+            .about-me-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+        <button id="themeToggle" class="theme-switch">Modo Escuro</button>
+    </header>
+
+    <main>
+        <section id="home" class="welcome-section">
+            <h1>Bem-vindo ao Meu Portfólio!</h1>
+            <p><strong>Opa! Tudo certo? Sou o Vinícius 👋</strong></p>
+            <p>Estou estudando Desenvolvimento de Software Multiplataforma e uso este cantinho virtual para mostrar minha evolução e projetos bacanas que tenho feito.</p>
+        </section>
+
+        <section id="about">
+            <h2>Mais sobre mim</h2>
+            <div class="about-me-content">
+                <img src="../src/img/portifolio.jpg" alt="Sua Foto" id="profile-photo">
+                <div class="about-me-text">
+                    <p>Sou estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí, atualmente cursando o segundo semestre. Minha paixão reside na exploração de novas tecnologias e em sua aplicação para desenvolver soluções que não apenas impactem positivamente a vida de muitos, mas que também ofereçam grande utilidade. Tenho especial interesse em sistemas de automação e gerenciamento, além de integrações com inteligência artificial.</p>
+
+                    <h3>Competências Profissionais</h3>
+                    <p>Busco constantemente aprimorar-me como um profissional que demonstra proficiência na gestão de prazos e demandas. Acredito firmemente que uma postura proativa no ambiente de trabalho e a capacidade de identificar problemáticas com exatidão são de suma importância para o sucesso de qualquer profissional. Meu objetivo é contribuir com perspicácia e inovação para atender às necessidades dos mais variados usuários, visando me tornar um profissional relevante e uma referência em minha área de atuação.</p>
+
+                    <h3>Interesses Pessoais</h3>
+                    <p>Para além do ambiente acadêmico e profissional, valorizo muito minha família. Nas horas livres, dedico-me à prática de esportes e a jogos que estimulam o raciocínio. Sou um grande apreciador de filmes e séries de ficção científica, tanto clássicos quanto contemporâneos, com destaque para produções como "De Volta para o Futuro" e muitas outras.</p>
+
+                    <h3>Habilidades Técnicas</h3>
+                    <ul class="skills-list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                        <li>SQL</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Meus Projetos</h2>
+
+            <div class="project-card">
+                <h3>Hallway Education - SCRUM</h3>
+                <p><strong>Desafio:</strong> Criar uma aplicação web para ensinar e avaliar o conhecimento básico dos usuários sobre a metodologia SCRUM.</p>
+                <p>Realizado em grupo, junto a outros sete colegas de turma, desenvolvemos uma aplicação web que intenta ensinar os preceitos iniciais da metodologia Scrum.</p>
+                <p>Desenvolvido em tecnologia <strong>HTML, CSS, JavaScript</strong>, sem a utilização de frameworks ou afins.</p>
+                <p><strong>Link da aplicação:</strong> <a href="https://github.com/hallwaytechgrupo/ABP-2024-2" target="_blank">Hallway Education - SCRUM no GitHub</a></p>
+            </div>
+
+            <div class="project-card">
+                <h3>Boitata - HeatSentinel</h3>
+                <p><strong>Desafio:</strong> Desenvolver uma aplicação completa, com interface de sistema, interface de usuário e banco de dados normalizado, em modelo ao BDQueimadas (fonte dos dados inseridos em Banco normalizado).</p>
+                <p>Realizado em grupo, junto a outros três colegas de turma, desenvolvemos uma aplicação web que busca em banco de dados próprio e mostra ao usuário informações climáticas específicas, como focos de calor, áreas queimadas e risco de fogo, com opções de filtragens por área ou janela de tempo.</p>
+                <p>Desenvolvido em tecnologia <strong>HTML, CSS, JavaScript</strong>, sem a utilização de frameworks ou afins.</p>
+                <p><strong>Link da aplicação:</strong> <a href="https://github.com/hallwaytechgrupo/Boitata" target="_blank">Boitata - HeatSentinel no GitHub</a></p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Entrar em Contato</h2>
+            <div class="contact-info">
+                <p>Fique à vontade para me contatar através dos links abaixo:</p>
+                <p>
+                    <a href="https://github.com/viniilemes" target="_blank">GitHub</a> |
+                    <a href="mailto:vi.lemes86@gmail.com">E-mail</a> |
+                    <a href="https://www.linkedin.com/in/vin%C3%ADcius-lemes-94532023b/" target="_blank">LinkedIn</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vinícius Lemes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+
+            // Carregar o tema salvo no localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                if (savedTheme === 'dark-mode') {
+                    themeToggle.textContent = 'Modo Claro';
+                } else {
+                    themeToggle.textContent = 'Modo Escuro';
+                }
+            } else {
+                // Definir um tema padrão se não houver um salvo (ex: claro)
+                body.classList.add('light-mode');
+                themeToggle.textContent = 'Modo Escuro';
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                    themeToggle.textContent = 'Modo Escuro';
+                    localStorage.setItem('theme', 'light-mode');
+                } else {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    themeToggle.textContent = 'Modo Claro';
+                    localStorage.setItem('theme', 'dark-mode');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
