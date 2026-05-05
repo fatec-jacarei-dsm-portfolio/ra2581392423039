@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio profissional de Vinícius Lemes - Desenvolvedor Full Stack especializado em JavaScript, React e Node.js">
+    <meta name="keywords" content="desenvolvedor, full stack, javascript, react, node.js, portfolio">
+    <meta name="author" content="Vinícius Lemes dos Santos">
+    <title>Vinícius Lemes | Desenvolvedor Full Stack</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo escuro" title="Alternar modo escuro">🌙</button>
+
+    <!-- Header / Hero Section -->
+    <header>
+        <div class="container">
+            <h1>Vinícius Lemes dos Santos</h1>
+            <p class="title-tag">Desenvolvedor Full Stack | Graduando FATEC</p>
+            
+            <div class="contact-info">
+                <span>📍 Jacareí, SP</span>
+                <a href="mailto:vi.lemes86@gmail.com" aria-label="Enviar email para Vinícius Lemes">✉️ vi.lemes86@gmail.com</a>
+                <a href="tel:12992571209" aria-label="Ligar para Vinícius Lemes">📞 (12) 992571209</a>
+                <a href="https://linkedin.com/in/vinicius-lemes" target="_blank" aria-label="LinkedIn de Vinícius Lemes" rel="noopener noreferrer">🔗 LinkedIn</a>
+                <a href="https://github.com/viniilemes" target="_blank" aria-label="GitHub de Vinícius Lemes" rel="noopener noreferrer">💻 GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Professional Summary -->
+        <section id="resumo">
+            <h2>Resumo Profissional</h2>
+            <p>
+                Desenvolvedor <strong>Full Stack</strong> em formação com sólida experiência em <strong>JavaScript, TypeScript e React</strong>. Especializado no desenvolvimento de aplicações web complexas, integrando APIs RESTful, bancos de dados relacionais e arquiteturas modernas. Profissional comprometido com <strong>qualidade técnica</strong>, boas práticas de código e entrega de soluções orientadas a resultados.
+            </p>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>
+                Sou um desenvolvedor apaixonado por transformar ideias em soluções digitais impactantes. Com formação em Desenvolvimento de Software na FATEC Jacareí, combino <strong>conhecimento técnico sólido</strong> com <strong>pensamento criativo</strong> e <strong>senso de responsabilidade</strong> nos projetos que trabalho.
+            </p>
+            <p style="margin-top: 15px;">
+                Minha jornada como desenvolvedor tem sido marcada por desafios que me obrigaram a crescer: desde arquitetar plataformas complexas de análise geoespacial até coordenar equipes como <strong>Scrum Master</strong>. Acredito que <strong>bom código</strong> é aquele que respeita o tempo de quem vai manutencioná-lo, que <strong>boa arquitetura</strong> facilita evolução futura, e que <strong>comunicação clara</strong> é essencial para o sucesso.
+            </p>
+            <p style="margin-top: 15px;">
+                Quando não estou codificando, gosto de explorar novas tecnologias, contribuir em projetos open-source e aprender com a comunidade. <strong>Estou em busca de oportunidades</strong> onde possa contribuir significativamente e continuar evoluindo como profissional.
+            </p>
+            <button class="cta-button" id="ctaButton1" onclick="document.getElementById('contactModal').classList.add('show')">
+                📧 Vamos Trabalhar Juntos!
+            </button>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="competencias">
+            <h2>Competências Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🛠️ Frontend & Core</h3>
+                    <div class="skill-badges">
+                        <span class="badge">JavaScript <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">TypeScript <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">React.js <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">HTML5 & CSS3 <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">Vite <span class="skill-level">★★★★☆</span></span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⚙️ Backend & Dados</h3>
+                    <div class="skill-badges">
+                        <span class="badge">Node.js <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">SQL <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">PostgreSQL <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">RESTful APIs <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">Git / GitHub <span class="skill-level">★★★★★</span></span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>📊 Metodologias & Ferramentas</h3>
+                    <div class="skill-badges">
+                        <span class="badge">Scrum <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">Kanban <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">Jira <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">Figma <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">Agile <span class="skill-level">★★★★★</span></span>
+                    </div>
+                </div>
+            </div>
+            <button class="cta-button" id="ctaButton2" onclick="document.getElementById('contactModal').classList.add('show')">
+                💼 Me Contrate!
+            </button>
+        </section>
+
+        <!-- Project Experience Section -->
+        <section id="experiencia">
+            <h2>Experiência em Projetos</h2>
+
+            <!-- Project: SkyHawk -->
+            <div class="project-item">
+                <div class="project-image-container">
+                    <div class="project-image-placeholder">
+                        📡
+                        <p>Clique para adicionar imagem</p>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-name">🛰️ SkyHawk - Plataforma INPE</span>
+                    <span class="project-date">3º Semestre / 2025</span>
+                </div>
+                <span class="project-role">Desenvolvedor Full Stack & Scrum Master</span>
+                <ul class="project-list">
+                    <li>Arquitetura e desenvolvimento de plataforma para identificação de satélites e análise de séries temporais ambientais (NDVI) utilizada pelo INPE.</li>
+                    <li>Implementação de APIs robustas em Node.js capazes de processar <strong>+50 milhões de registros geoespaciais</strong> com filtragem espacial, temporal e consultas complexas.</li>
+                    <li>Criação de sistema de exportação otimizado em CSV/JSON com <strong>redução de 70% no tempo de processamento</strong>, suportando análise científica em grande escala.</li>
+                    <li>Liderança de equipe de <strong>6 desenvolvedores</strong> como Scrum Master, coordenação de 3 sprints, alinhamento de requisitos com INPE e garantia de entrega no prazo.</li>
+                </ul>
+            </div>
+
+            <!-- Project: Queimadas -->
+            <div class="project-item">
+                <div class="project-image-container">
+                    <div class="project-image-placeholder">
+                        🔥
+                        <p>Clique para adicionar imagem</p>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-name">🔥 Programa Queimadas - INPE</span>
+                    <span class="project-date">2º Semestre / 2025</span>
+                </div>
+                <span class="project-role">Desenvolvedor Full Stack</span>
+                <ul class="project-list">
+                    <li>Desenvolvimento de dashboard interativo em React com TypeScript processando <strong>dados em tempo real</strong> de <strong>+1.000 focos de queimada</strong> monitorizados pelo INPE.</li>
+                    <li>Integração de APIs Node.js com banco de dados PostgreSQL otimizado com índices geoespaciais para processamento de <strong>100+ requisições/minuto</strong> sem degradação.</li>
+                    <li>Implementação de algoritmos de análise de risco de fogo com <strong>85% de precisão</strong> e mapeamento de áreas queimadas com geolocalização subkilométrica.</li>
+                    <li>Aplicação utilizada por <strong>institutos de pesquisa ambientais</strong> para tomada de decisão em políticas de prevenção de desastres naturais.</li>
+                </ul>
+            </div>
+
+            <!-- Project: Educational Website -->
+            <div class="project-item">
+                <div class="project-image-container">
+                    <div class="project-image-placeholder">
+                        📚
+                        <p>Clique para adicionar imagem</p>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-name">📚 Website Educacional - Metodologia Scrum</span>
+                    <span class="project-date">1º Semestre / 2024</span>
+                </div>
+                <span class="project-role">Desenvolvedor Frontend & Designer UX</span>
+                <ul class="project-list">
+                    <li>Desenvolvimento de interfaces <strong>100% responsivas</strong> (mobile-first) e acessíveis (WCAG AA) com HTML5, CSS3 avançado e JavaScript puro, atingindo <strong>97/100 Lighthouse Score</strong>.</li>
+                    <li>Prototipagem de alta fidelidade em Figma com <strong>4 iterações de testes com usuários</strong>, resultando em <strong>8.2/10 de satisfação</strong> e usabilidade validada.</li>
+                    <li>Estruturação de banco de dados PostgreSQL com modelos relacionais normalizados para gestão de <strong>500+ usuários</strong>, avaliações e progresso acadêmico com <strong>0% downtime</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Academic Formation Section -->
+        <section id="formacao">
+            <h2>Formação Acadêmica</h2>
+            <div class="edu-item">
+                <p class="edu-school">🎓 Tecnologia em Desenvolvimento de Software Multiplataforma</p>
+                <p><strong>FATEC Jacareí</strong> | 2024 – 2027 (Em andamento)</p>
+            </div>
+            <div class="edu-item">
+                <p class="edu-school">🌐 Inglês - Nível Intermediário</p>
+                <p><strong>Instituto Federal de Educação (IFSP)</strong> | Em aprimoramento contínuo</p>
+            </div>
+            <div class="edu-item">
+                <p class="edu-school">💻 Técnico em Computação</p>
+                <p><strong>CENAIC Jacareí</strong> | 2015 – 2017</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Vamos Conversar? 💬</h2>
+                <button class="close-modal" id="closeModal" aria-label="Fechar formulário" type="button">&times;</button>
+            </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Seu Nome</label>
+                    <input type="text" id="contactName" name="name" required aria-label="Seu nome" placeholder="João Silva">
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" name="email" required aria-label="Seu email" placeholder="seu.email@exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Assunto</label>
+                    <input type="text" id="contactSubject" name="subject" required aria-label="Assunto da mensagem" placeholder="Ex: Oportunidade de Trabalho">
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Mensagem</label>
+                    <textarea id="contactMessage" name="message" required aria-label="Sua mensagem" placeholder="Digite sua mensagem aqui..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Enviar Mensagem</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="font-weight: 600; font-size: 1.1rem;">Vinícius Lemes dos Santos</p>
+            <p style="margin-top: 12px;">
+                <a href="mailto:vi.lemes86@gmail.com" aria-label="Enviar email para Vinícius Lemes">✉️ Email</a> |
+                <a href="https://linkedin.com/in/vinicius-lemes" target="_blank" aria-label="LinkedIn de Vinícius Lemes" rel="noopener noreferrer">🔗 LinkedIn</a> |
+                <a href="https://github.com/viniilemes" target="_blank" aria-label="GitHub de Vinícius Lemes" rel="noopener noreferrer">💻 GitHub</a>
+            </p>
+            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.8;">Jacareí, São Paulo • 2026</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

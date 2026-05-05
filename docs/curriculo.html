@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinícius Lemes | Desenvolvedor Full Stack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos de Base */
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-lighter: #f3f4f6;
+            --white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Dark Mode */
+        html.dark-mode {
+            --primary: #f9fafb;
+            --secondary: #bfdbfe;
+            --accent: #60a5fa;
+            --text-dark: #e5e7eb;
+            --text-light: #9ca3af;
+            --bg-light: #111827;
+            --bg-lighter: #1f2937;
+            --white: #0f172a;
+            --border: #374151;
+        }
+
+        html.dark-mode body {
+            background: linear-gradient(180deg, #0f172a 0%, rgba(30, 64, 175, 0.1) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(180deg, var(--bg-light) 0%, rgba(59, 130, 246, 0.02) 100%);
+            line-height: 1.7;
+            font-size: 16px;
+            min-height: 100vh;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1) rotate(20deg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dark-mode-toggle:active {
+            transform: scale(0.95);
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .title-tag {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+            margin-bottom: 30px;
+            letter-spacing: 0.3px;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .contact-info a, .contact-info span {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .contact-info a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 50px 20px;
+            background-color: var(--white);
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.7s ease-out;
+        }
+
+        section:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 12px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            display: inline-block;
+            letter-spacing: -0.3px;
+            position: relative;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--bg-lighter);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: var(--shadow-md);
+            background: var(--white);
+            border-left-color: var(--accent);
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: default;
+            box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+            animation: fadeInUp 0.5s ease-out;
+            position: relative;
+        }
+
+        .badge:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 6px 12px rgba(30, 64, 175, 0.4);
+        }
+
+        .skill-level {
+            display: inline-block;
+            font-size: 0.7rem;
+            margin-left: 4px;
+            opacity: 0.8;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 6px rgba(30, 64, 175, 0.2);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 12px rgba(30, 64, 175, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 95%;
+            box-shadow: var(--shadow-lg);
+            animation: slideInUp 0.4s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            border: none;
+            padding: 0;
+            display: block;
+        }
+
+        .close-modal {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 1rem;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: none;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid var(--success);
+            display: block;
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+            display: block;
+        }
+
+        /* Projetos */
+        .project-item {
+            padding: 30px;
+            background: var(--bg-lighter);
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .project-item:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px) translateY(-4px);
+            border-left-color: var(--accent);
+        }
+
+        .project-image-container {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .project-item:hover .project-image-container {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .project-item:hover .project-image-container img {
+            transform: scale(1.05);
+        }
+
+        .project-image-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .project-image-placeholder p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .project-item:hover .project-name {
+            color: var(--accent);
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .project-role {
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .project-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .project-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        .project-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover .project-list li::before {
+            transform: translateX(4px);
+            color: var(--secondary);
+        }
+
+        /* Resumo */
+        #resumo p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        #resumo strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Educação e Idiomas */
+        .edu-item {
+            padding: 20px;
+            background: var(--bg-lighter);
+            border-radius: 10px;
+            margin-bottom: 18px;
+            border-left: 4px solid var(--success);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .edu-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-4px) translateX(4px);
+            background: var(--white);
+        }
+
+        .edu-school {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .edu-item p:last-child {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        footer a {
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            transform: translateY(-2px);
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            h1 { 
+                font-size: 2.2rem; 
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .project-header {
+                flex-direction: column;
+            }
+            .contact-info {
+                gap: 10px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo escuro" title="Alternar modo escuro">🌙</button>
+
+    <header>
+        <div class="container">
+            <h1>Vinícius Lemes dos Santos</h1>
+            <p class="title-tag">Desenvolvedor Full Stack | Graduando FATEC</p>
+            
+            <div class="contact-info">
+                <span>📍 Jacareí, SP</span>
+                <a href="mailto:vi.lemes86@gmail.com">✉️ vi.lemes86@gmail.com</a>
+                <a href="tel:12992571209">📞 (12) 992571209</a>
+                <a href="https://linkedin.com/in/vinicius-lemes" target="_blank" aria-label="LinkedIn de Vinícius Lemes">🔗 LinkedIn</a>
+                <a href="https://github.com/viniilemes" target="_blank" aria-label="GitHub de Vinícius Lemes">💻 GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="resumo">
+            <h2>Resumo Profissional</h2>
+            <p>
+                Desenvolvedor <strong>Full Stack</strong> em formação com sólida experiência em <strong>JavaScript, TypeScript e React</strong>. Especializado no desenvolvimento de aplicações web complexas, integrando APIs RESTful, bancos de dados relacionais e arquiteturas modernas. Profissional comprometido com <strong>qualidade técnica</strong>, boas práticas de código e entrega de soluções orientadas a resultados.
+            </p>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.8;">
+                Sou um desenvolvedor apaixonado por transformar ideias em soluções digitais impactantes. Com formação em Desenvolvimento de Software na FATEC Jacareí, combino <strong>conhecimento técnico sólido</strong> com <strong>pensamento criativo</strong> e <strong>senso de responsabilidade</strong> nos projetos que trabalho.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.8; margin-top: 15px;">
+                Minha jornada como desenvolvedor tem sido marcada por desafios que me obrigaram a crescer: desde arquitetar plataformas complexas de análise geoespacial até coordenar equipes como <strong>Scrum Master</strong>. Acredito que <strong>bom código</strong> é aquele que respeita o tempo de quem vai manutencioná-lo, que <strong>boa arquitetura</strong> facilita evolução futura, e que <strong>comunicação clara</strong> é essencial para o sucesso.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-dark); line-height: 1.8; margin-top: 15px;">
+                Quando não estou codificando, gosto de explorar novas tecnologias, contribuir em projetos open-source e aprender com a comunidade. <strong>Estou em busca de oportunidades</strong> onde possa contribuir significativamente e continuar evoluindo como profissional.
+            </p>
+            <button class="cta-button" id="ctaButton1" onclick="document.getElementById('contactModal').classList.add('show')">
+                📧 Vamos Trabalhar Juntos!
+            </button>
+        </section>
+
+        <section id="competencias">
+            <h2>Competências Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🛠️ Frontend & Core</h3>
+                    <div class="skill-badges">
+                        <span class="badge">JavaScript <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">TypeScript <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">React.js <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">HTML5 & CSS3 <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">Vite <span class="skill-level">★★★★☆</span></span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>⚙️ Backend & Dados</h3>
+                    <div class="skill-badges">
+                        <span class="badge">Node.js <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">SQL <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">PostgreSQL <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">RESTful APIs <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">Git / GitHub <span class="skill-level">★★★★★</span></span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>📊 Metodologias & Ferramentas</h3>
+                    <div class="skill-badges">
+                        <span class="badge">Scrum <span class="skill-level">★★★★★</span></span>
+                        <span class="badge">Kanban <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">Jira <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">Figma <span class="skill-level">★★★★☆</span></span>
+                        <span class="badge">Agile <span class="skill-level">★★★★★</span></span>
+                    </div>
+                </div>
+            </div>
+            <button class="cta-button" id="ctaButton2" onclick="document.getElementById('contactModal').classList.add('show')">
+                💼 Me Contrate!
+            </button>
+        </section>
+
+        <section id="experiencia">
+            <h2>Experiência em Projetos</h2>
+
+            <!-- Projeto SkyHawk -->
+            <div class="project-item">
+                <div class="project-image-container">
+                    <div class="project-image-placeholder">
+                        <!-- AQUI ADICIONE A IMAGEM DO PROJETO -->
+                        <!-- Descomente a linha abaixo e adicione a URL da imagem -->
+                        <!-- <img src="caminho/para/sua-imagem.jpg" alt="SkyHawk"> -->
+                        📡
+                        <p>Clique para adicionar imagem</p>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-name">🛰️ SkyHawk - Plataforma INPE</span>
+                    <span class="project-date">3º Semestre / 2025</span>
+                </div>
+                <span class="project-role">Desenvolvedor Full Stack & Scrum Master</span>
+                <ul class="project-list">
+                    <li>Arquitetura e desenvolvimento de plataforma para identificação de satélites e análise de séries temporais ambientais (NDVI) utilizada pelo INPE.</li>
+                    <li>Implementação de APIs robustas em Node.js capazes de processar <strong>+50 milhões de registros geoespaciais</strong> com filtragem espacial, temporal e consultas complexas.</li>
+                    <li>Criação de sistema de exportação otimizado em CSV/JSON com <strong>redução de 70% no tempo de processamento</strong>, suportando análise científica em grande escala.</li>
+                    <li>Liderança de equipe de <strong>6 desenvolvedores</strong> como Scrum Master, coordenação de 3 sprints, alinhamento de requisitos com INPE e garantia de entrega no prazo.</li>
+                </ul>
+                <!-- COMENTADO: SEÇÃO DE VÍDEO DO PROJETO (Descomente quando quiser usar)
+                <div class="project-video-container" style="margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--primary);">📹 Demonstração em Vídeo</h4>
+                    <iframe width="100%" height="315" src="ADICIONAR-URL-DO-VIDEO-AQUI" 
+                            title="Demonstração SkyHawk" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
+                -->
+            </div>
+
+            <!-- Projeto Queimadas -->
+            <div class="project-item">
+                <div class="project-image-container">
+                    <div class="project-image-placeholder">
+                        <!-- AQUI ADICIONE A IMAGEM DO PROJETO -->
+                        <!-- Descomente a linha abaixo e adicione a URL da imagem -->
+                        <!-- <img src="caminho/para/sua-imagem.jpg" alt="Queimadas"> -->
+                        🔥
+                        <p>Clique para adicionar imagem</p>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-name">🔥 Programa Queimadas - INPE</span>
+                    <span class="project-date">2º Semestre / 2025</span>
+                </div>
+                <span class="project-role">Desenvolvedor Full Stack</span>
+                <ul class="project-list">
+                    <li>Desenvolvimento de dashboard interativo em React com TypeScript processando <strong>dados em tempo real</strong> de <strong>+1.000 focos de queimada</strong> monitorizados pelo INPE.</li>
+                    <li>Integração de APIs Node.js com banco de dados PostgreSQL otimizado com índices geoespaciais para processamento de <strong>100+ requisições/minuto</strong> sem degradação.</li>
+                    <li>Implementação de algoritmos de análise de risco de fogo com <strong>85% de precisão</strong> e mapeamento de áreas queimadas com geolocalização subkilométrica.</li>
+                    <li>Aplicação utilizada por <strong>institutos de pesquisa ambientais</strong> para tomada de decisão em políticas de prevenção de desastres naturais.</li>
+                </ul>
+                <!-- COMENTADO: SEÇÃO DE VÍDEO DO PROJETO (Descomente quando quiser usar)
+                <div class="project-video-container" style="margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--primary);">📹 Demonstração em Vídeo</h4>
+                    <iframe width="100%" height="315" src="ADICIONAR-URL-DO-VIDEO-AQUI" 
+                            title="Demonstração Queimadas" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
+                -->
+            </div>
+
+            <!-- Projeto ABP Scrum -->
+            <div class="project-item">
+                <div class="project-image-container">
+                    <div class="project-image-placeholder">
+                        <!-- AQUI ADICIONE A IMAGEM DO PROJETO -->
+                        <!-- Descomente a linha abaixo e adicione a URL da imagem -->
+                        <!-- <img src="caminho/para/sua-imagem.jpg" alt="Website Educacional"> -->
+                        📚
+                        <p>Clique para adicionar imagem</p>
+                    </div>
+                </div>
+                <div class="project-header">
+                    <span class="project-name">📚 Website Educacional - Metodologia Scrum</span>
+                    <span class="project-date">1º Semestre / 2024</span>
+                </div>
+                <span class="project-role">Desenvolvedor Frontend & Designer UX</span>
+                <ul class="project-list">
+                    <li>Desenvolvimento de interfaces <strong>100% responsivas</strong> (mobile-first) e acessíveis (WCAG AA) com HTML5, CSS3 avançado e JavaScript puro, atingindo <strong>97/100 Lighthouse Score</strong>.</li>
+                    <li>Prototipagem de alta fidelidade em Figma com <strong>4 iterações de testes com usuários</strong>, resultando em <strong>8.2/10 de satisfação</strong> e usabilidade validada.</li>
+                    <li>Estruturação de banco de dados PostgreSQL com modelos relacionais normalizados para gestão de <strong>500+ usuários</strong>, avaliações e progresso acadêmico com <strong>0% downtime</strong>.</li>
+                </ul>
+                <!-- COMENTADO: SEÇÃO DE VÍDEO DO PROJETO (Descomente quando quiser usar)
+                <div class="project-video-container" style="margin-top: 20px;">
+                    <h4 style="margin-bottom: 10px; color: var(--primary);">📹 Demonstração em Vídeo</h4>
+                    <iframe width="100%" height="315" src="ADICIONAR-URL-DO-VIDEO-AQUI" 
+                            title="Demonstração Website Educacional" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="border-radius: 8px;"></iframe>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <section id="formacao">
+            <h2>Formação Acadêmica</h2>
+            <div class="edu-item">
+                <p class="edu-school">🎓 Tecnologia em Desenvolvimento de Software Multiplataforma</p>
+                <p><strong>FATEC Jacareí</strong> | 2024 – 2027 (Em andamento)</p>
+            </div>
+            <div class="edu-item">
+                <p class="edu-school">🌐 Inglês - Nível Intermediário</p>
+                <p><strong>Instituto Federal de Educação (IFSP)</strong> | Em aprimoramento contínuo</p>
+            </div>
+            <div class="edu-item">
+                <p class="edu-school">💻 Técnico em Computação</p>
+                <p><strong>CENAIC Jacareí</strong> | 2015 – 2017</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal de Contato -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Vamos Conversar? 💬</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="contactName">Seu Nome</label>
+                    <input type="text" id="contactName" name="name" required aria-label="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="email" id="contactEmail" name="email" required aria-label="Seu email">
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">Assunto</label>
+                    <input type="text" id="contactSubject" name="subject" required aria-label="Assunto da mensagem">
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">Mensagem</label>
+                    <textarea id="contactMessage" name="message" required aria-label="Sua mensagem"></textarea>
+                </div>
+                <button type="submit" class="form-submit">Enviar Mensagem</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p style="font-weight: 600; font-size: 1.1rem;">Vinícius Lemes dos Santos</p>
+            <p style="margin-top: 12px;">
+                <a href="mailto:vi.lemes86@gmail.com" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; margin: 0 15px;" aria-label="Enviar email para Vinícius Lemes">✉️ Email</a> |
+                <a href="https://linkedin.com/in/vinicius-lemes" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; margin: 0 15px;" aria-label="LinkedIn de Vinícius Lemes">🔗 LinkedIn</a> |
+                <a href="https://github.com/viniilemes" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; margin: 0 15px;" aria-label="GitHub de Vinícius Lemes">💻 GitHub</a>
+            </p>
+            <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.8;">Jacareí, São Paulo • 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const htmlElement = document.documentElement;
+
+        // Verificar se o usuário tem preferência salva
+        const savedDarkMode = localStorage.getItem('darkMode');
+        if (savedDarkMode === 'true') {
+            htmlElement.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Se não tem preferência salva, usar preferência do sistema
+            htmlElement.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️';
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', function() {
+            htmlElement.classList.toggle('dark-mode');
+            const isDarkMode = htmlElement.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            darkModeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+            darkModeToggle.style.animation = 'pulse 0.6s ease-out';
+        });
+
+        // Animações ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.7s ease-out';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, .project-item, .skill-category, .edu-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.animation = 'fadeInUp 0.7s ease-out forwards';
+            observer.observe(el);
+        });
+
+        // Efeito ripple nos badges
+        document.querySelectorAll('.badge').forEach(badge => {
+            badge.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.animation = 'expand 0.6s ease-out';
+                
+                const rect = this.getBoundingClientRect();
+                ripple.style.left = (e.clientX - rect.left - 10) + 'px';
+                ripple.style.top = (e.clientY - rect.top - 10) + 'px';
+            });
+        });
+
+        // Interatividade com as imagens dos projetos
+        document.querySelectorAll('.project-image-container').forEach(container => {
+            container.addEventListener('click', function() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        // Cria a imagem com efeito de fade
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.style.animation = 'fadeIn 0.6s ease-out';
+                        
+                        // Remove o placeholder se existir
+                        const placeholder = this.querySelector('.project-image-placeholder');
+                        if (placeholder) {
+                            placeholder.remove();
+                        }
+                        
+                        // Limpa o container e adiciona a imagem
+                        this.innerHTML = '';
+                        this.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                };
+                input.click();
+            });
+        });
+
+        // Smooth scroll para links de contato
+        document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                this.style.animation = 'pulse 0.6s ease-out';
+            });
+        });
+
+        // Ativar animações de entrada ao carregar
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Contact Modal
+        const contactModal = document.getElementById('contactModal');
+        const closeModal = document.getElementById('closeModal');
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        closeModal.addEventListener('click', () => {
+            contactModal.classList.remove('show');
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+        });
+
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('show');
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+            }
+        });
+
+        // Escape key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                contactModal.classList.remove('show');
+                formMessage.textContent = '';
+                formMessage.className = 'form-message';
+            }
+        });
+
+        // Form submission
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                subject: formData.get('subject'),
+                message: formData.get('message')
+            };
+
+            try {
+                // Simular envio (você pode integrar com serviço de email como Emailjs ou backend)
+                // Por enquanto, vamos simular um envio bem-sucedido
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Sucesso
+                formMessage.textContent = '✅ Mensagem enviada com sucesso! Entrarei em contato em breve.';
+                formMessage.className = 'form-message success';
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    contactModal.classList.remove('show');
+                    formMessage.textContent = '';
+                    formMessage.className = 'form-message';
+                }, 3000);
+            } catch (error) {
+                formMessage.textContent = '❌ Erro ao enviar mensagem. Tente novamente ou envie um email diretamente.';
+                formMessage.className = 'form-message error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    </script>
+
+</body>
+</html>
