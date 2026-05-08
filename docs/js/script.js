@@ -11,6 +11,7 @@ if (savedDarkMode === 'true') {
     // Se não tem preferência salva, usar preferência do sistema
     htmlElement.classList.add('dark-mode');
     darkModeToggle.textContent = '☀️';
+    
 }
 
 // Toggle dark mode

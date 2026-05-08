@@ -1,103 +1,86 @@
-# 📊 Portfólio Profissional - Vinícius Lemes
+# 📊 Portfólio Profissional
 
-Portfólio moderno, responsivo e acessível de um desenvolvedor Full Stack, com modo escuro, formulário de contato e experiência de usuário otimizada.
+Portfólio responsivo de um desenvolvedor Full Stack, com design moderno e acessível.
 
-**Visite:** [Clique aqui](file:///C:/Users/Vinicius/Documents/Portifolio_02/Portifolio-2/index.html)
+---
+
+## ✨ Características
+
+- ✅ **Design Responsivo** - Funciona em desktop, tablet e mobile
+- 🌙 **Modo Escuro** - Alterna entre temas claros e escuros
+- 💬 **Formulário de Contato** - Modal com validação
+- 🎨 **Estilos Modernos** - CSS limpo e bem organizado
+- ♿ **Acessível** - Semântica HTML5 e ARIA labels
+- 🚀 **Sem Dependências** - Vanilla JavaScript puro
 
 ---
 
 ## 📁 Estrutura do Projeto
 
 ```
-Portifolio-2/
-├── index.html              # Arquivo HTML principal (semântico e acessível)
+docs/
+├── index.html              # Página principal
 ├── curriculo.html          # Página de currículo (opcional)
 ├── css/
-│   └── styles.css         # Estilos unificados com variáveis CSS centralizadas
+│   └── styles.css         # Estilos
 ├── js/
-│   └── script.js          # Lógica JavaScript modularizada
-├── assets/                # Pasta para imagens e recursos
-├── README.md              # Documentação do projeto
-├── STRUCTURE.md           # Documentação da arquitetura
-├── QUICK_START.md         # Guia rápido de início
-└── TEST_CHECKLIST.md      # Checklist de testes
-
+│   └── script.js          # Lógica JavaScript
+└── assets/                # Imagens e recursos
 ```
 
 ---
 
-## ✨ Características
+## 🚀 Como Visualizar Localmente
 
-- ✅ **Design Responsivo** - Otimizado para desktop, tablet e mobile
-- 🌙 **Modo Escuro** - Toggle com persistência de preferência do usuário
-- 💬 **Formulário de Contato** - Modal com validação e feedback
-- 🎨 **Variáveis CSS Centralizadas** - Fácil customização de cores e estilos
-- ♿ **Acessibilidade** - ARIA labels, navegação por teclado, semântica HTML
-- 🚀 **Performance** - Carregamento rápido, sem dependências externas
-- 📱 **Mobile First** - Desenvolvido com abordagem mobile-first
+### Opção 1: Servidor Local (Recomendado)
+```bash
+# Com Python 3
+python -m http.server 8000
 
----
+# Com Node.js
+npx http-server
 
-## 🎯 Boas Práticas Implementadas
+# Com PHP
+php -S localhost:8000
+```
+Depois acesse: **http://localhost:8000/docs/**
 
-### 1. **Separação de Responsabilidades**
-   - HTML: Estrutura semântica e acessível
-   - CSS: Estilos e animações em arquivo separado
-   - JavaScript: Lógica e interatividade em arquivo separado
-
-### 2. **Variáveis CSS Centralizadas**
-   - Todas as cores em `:root`
-   - Dark mode sobrescreve variáveis sem duplicação
-   - Fácil manutenção e consistência visual
-
-### 3. **Código Comentado e Organizado**
-   - Comentários explicativos em seções
-   - JavaScript dividido em módulos lógicos (DOMContentLoaded)
-   - CSS organizado por componentes
-
-### 4. **Acessibilidade (A11y)**
-   - Atributos `aria-label` em todos os botões
-   - `rel="noopener noreferrer"` em links externos
-   - Semântica HTML semântica (`<header>`, `<main>`, `<footer>`, `<section>`)
-   - Contraste de cores adequado
-
-### 5. **Performance**
-   - Sem frameworks pesados (vanilla JS)
-   - CSS otimizado com prefixação
-   - Animações GPU-aceleradas (transform, opacity)
+### Opção 2: Abrir Diretamente
+Clique duas vezes em `index.html` no navegador.
 
 ---
 
-## 🚀 Como Usar
+## 📝 Como Editar
 
-### Abrir o Portfólio Localmente
-1. **Opção 1**: Abra `index.html` diretamente no navegador
+1. Abra `index.html` em um editor de texto (VS Code, Sublime, etc)
+2. Modifique o conteúdo HTML
+3. Salve e recarregue a página no navegador (`F5`)
+4. Teste em diferentes tamanhos de tela
+
+---
+
+## 🌐 Publicar no GitHub Pages
+
+1. Faça push do projeto no repositório:
    ```bash
-   # Windows
-   start index.html
-   
-   # macOS
-   open index.html
-   
-   # Linux
-   xdg-open index.html
+   git add .
+   git commit -m "Atualizar portfólio"
+   git push origin main
    ```
 
-2. **Opção 2**: Use um servidor local (recomendado)
-   ```bash
-   # Usando Python 3
-   python -m http.server 8000
-   
-   # Usando Node.js (com http-server instalado)
-   npx http-server
-   
-   # Usando PHP
-   php -S localhost:8000
-   ```
-   Depois acesse: **http://localhost:8000**
+2. Vá em **Settings** > **Pages** do seu repositório
 
-### Testar Funcionalidades
-- 🌙 Clique no botão ☀️/🌙 no canto superior direito para alternar modo escuro
+3. Selecione **Deploy from a branch** e escolha a branch `main`
+
+4. Sua página estará disponível em: `https://seu-usuario.github.io/seu-repo/docs/`
+
+---
+
+## 📚 Referências
+
+- [MDN - HTML Semântico](https://developer.mozilla.org/pt-BR/docs/Glossary/Semantic_HTML)
+- [GitHub Pages Docs](https://pages.github.com/)
+- [Acessibilidade Web](https://www.w3.org/WAI/fundamentals/accessibility-intro/pt-br/)
 - 📧 Clique em "Vamos Trabalhar Juntos!" para abrir o modal de contato
 - 📱 Redimensione o navegador para ver a responsividade mobile
 - ⌨️ Pressione ESC para fechar modais
