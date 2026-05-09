@@ -4,6 +4,15 @@ Portfólio responsivo de um desenvolvedor Full Stack, com design moderno e acess
 
 ---
 
+## 🌐 Acesso Online
+
+**Visite o portfólio em produção:**
+
+- 🔗 **Site Publicado**: [https://ra2581392423039.vercel.app/](https://ra2581392423039.vercel.app/)
+- 📹 **Apresentação em Vídeo**: [https://www.loom.com/share/502c72ac969e485f94bbc206e29037ed](https://www.loom.com/share/502c72ac969e485f94bbc206e29037ed)
+
+---
+
 ## ✨ Características
 
 - ✅ **Design Responsivo** - Funciona em desktop, tablet e mobile
