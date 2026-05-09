@@ -403,9 +403,3 @@ R: Sim! É seu portfólio pessoal. Personalize e publique livremente.
 ## 📄 Licença
 
 Este portfólio é de uso pessoal. Sinta-se livre para usar como inspiração!
-
----
-
-**Última atualização**: Maio 2026  
-**Versão**: 2.1 (Refatorizada com boas práticas + Bug fixes)  
-**Status**: ✅ Totalmente Funcional
