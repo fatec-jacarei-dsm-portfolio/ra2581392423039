@@ -8,7 +8,7 @@ Portfólio responsivo de um desenvolvedor Full Stack, com design moderno e acess
 
 **Visite o portfólio em produção:**
 
-- 🔗 **Site Publicado**: [https://ra2581392423039.vercel.app/](https://ra2581392423039.vercel.app/)
+- 🔗 **Site oficial FATEC**: [https://fatec-jacarei-dsm-portfolio.github.io/ra2581392423039/](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392423039/)
 - 📹 **Apresentação em Vídeo**: [https://www.loom.com/share/502c72ac969e485f94bbc206e29037ed](https://www.loom.com/share/502c72ac969e485f94bbc206e29037ed)
 
 ---
@@ -113,18 +113,12 @@ git remote add origin https://github.com/seu-usuario/seu-repo.git
 git push -u origin main
 ```
 
-### Opção 2: **Vercel** (Grátis)
-```bash
-npm install -g vercel
-vercel
-```
-
-### Opção 3: **Netlify** (Grátis)
+### Opção 2: **Netlify** (Grátis)
 1. Faça login em [netlify.com](https://netlify.com)
 2. Drag & drop a pasta do projeto
 3. Pronto! Seu site está online
 
-### Opção 4: **Hospedagem Tradicional** (Pago)
+### Opção 3: **Hospedagem Tradicional** (Pago)
 - Compre um domínio e hospedagem
 - Faça upload via FTP/SFTP
 - Configure DNS se necessário
@@ -394,7 +388,6 @@ R: Sim! É seu portfólio pessoal. Personalize e publique livremente.
 
 ## 📞 Contato & Suporte
 
-- **Email**: vi.lemes86@gmail.com
 - **LinkedIn**: [linkedin.com/in/vinicius-lemes](https://linkedin.com/in/vinicius-lemes)
 - **GitHub**: [github.com/viniilemes](https://github.com/viniilemes)
 

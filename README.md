@@ -9,5 +9,5 @@
 
 **Visualize o portfólio profissional em:**
 
-- 🔗 **Site**: [https://ra2581392423039.vercel.app/](https://ra2581392423039.vercel.app/)
+- 🔗 **Site oficial FATEC**: [https://fatec-jacarei-dsm-portfolio.github.io/ra2581392423039/](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392423039/)
 - 📹 **Vídeo de Apresentação**: [https://www.loom.com/share/502c72ac969e485f94bbc206e29037ed](https://www.loom.com/share/502c72ac969e485f94bbc206e29037ed)
