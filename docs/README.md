@@ -145,7 +145,7 @@ Edite `css/styles.css` (linhas 1-20):
 }
 ```
 
-### 2️⃣ Adicionar Projetos
+### 2️⃣ Adicionar Projetos Acadêmicos
 No `index.html`, dentro de `<section id="experiencia">`, copie este bloco:
 
 ```html
@@ -237,7 +237,7 @@ Edite as variáveis em `css/styles.css`:
 }
 ```
 
-### Adicionar Projetos
+### Adicionar Projetos Acadêmicos
 1. Copie um `<div class="project-item">` em `index.html`
 2. Atualize o título, data, descrição e lista de responsabilidades
 3. As imagens carregam via clique no container (local storage)
