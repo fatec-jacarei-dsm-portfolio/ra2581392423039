@@ -1,7 +1,7 @@
 # Portfólio de Projetos Acadêmicos - Fatec Jacareí
 ### Aluno: Vinícius Lemes dos Santos
 ### Curso: Desenvolvimento de Software Multiplataforma
-### Turma: 4o. Semestre de 2026
+### Turma: 2o. semestre de 2024
 
 ---
 

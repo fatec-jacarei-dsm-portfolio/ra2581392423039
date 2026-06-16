@@ -628,6 +628,17 @@ body {
     margin-bottom: var(--spacing-md);
 }
 
+.project-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.project-description strong {
+    color: var(--text-primary);
+}
+
 .project-highlights {
     list-style: none;
     margin-bottom: var(--spacing-md);
@@ -669,6 +680,31 @@ body {
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+.project-actions {
+    margin-top: var(--spacing-md);
+}
+
+.project-repo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 14px;
+    border: 1px solid var(--accent-green);
+    border-radius: 4px;
+    color: var(--accent-green);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.project-repo:hover {
+    background-color: var(--accent-green);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
 }
 
 /* ========== EDUCATION SECTION ========== */
